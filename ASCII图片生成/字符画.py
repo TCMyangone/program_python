@@ -3,6 +3,14 @@ ASCII字符图片生成器,代码里的"path"自己替换
 '''
 from PIL import Image, ImageFont, ImageDraw
 import numpy as np
+import os
+'''
+os.path.abspath(path)	返回绝对路径
+os.path.dirname(path)	返回文件路径
+切换工作目录到当前文件所在目录,因为程序读取用的是相对路径,所以命令窗口的工作目录不在文件所在目录就会报错
+'''
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 def ascii_art(file):
     '''生成ASCII字符图片'''
     
