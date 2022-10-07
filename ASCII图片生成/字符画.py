@@ -1,3 +1,6 @@
+'''
+ASCII字符图片生成器,代码里的"path"自己替换
+'''
 from PIL import Image, ImageFont, ImageDraw
 import numpy as np
 def ascii_art(file):
@@ -8,7 +11,7 @@ def ascii_art(file):
     # 缩小比例
     sample_rate = 0.05
     #字体对象
-    font = ImageFont.truetype(r'C:\Windows\Fonts\arial.ttf', size=10)
+    font = ImageFont.truetype(path, size=10)
     #字体的宽高比
     width_height = font.getbbox('x')[2] / font.getbbox('x')[3]
     # 设定新的尺寸，不然太大，工作量也变大，低配电脑容易死机
