@@ -1,11 +1,15 @@
+'''
+ASCII字符图片的动画版,具体算法注释见"ASCII图片生成"
+'''
 from PIL import Image, ImageFont, ImageDraw
 import numpy as np
 import os
-import sys
+
 def ascii_art():
+    '''生成ASCII动画,配合ffmpeg用'''
     x = 1
-    for file in os.listdir(r'ASCII动画\image'):
-        im = Image.open('ASCII动画\\image\\'+file)
+    for file in os.listdir(path):
+        im = Image.open(path)
         sample_rate = 0.1
         font = ImageFont.truetype(r'C:\Windows\Fonts\arial.ttf', size=50)
         width_height = font.getbbox('x')[2] / font.getbbox('x')[3]
@@ -29,16 +33,9 @@ def ascii_art():
             for j, ch in enumerate(line):
                 color = tuple(im_color[i, j])
                 draw.text((letter_size[2] * j, y), ch, fill=color, font=font)
-                
             y += letter_size[-1]
         im_out.save('ASCII动画\\out\\%s.jpg'%x)
-        # for k in range(1, len(os.listdir(r'ASCII动画\image'))):
-        print('\r',end='')
-        print('进度:%s'%(x/len(os.listdir(r'ASCII动画\image')) * 100))
-        sys.stdout.flush()
         x += 1
     print('Over!')
-    # lines = '\n'.join((''.join(r) for r in ascii))
-    # print(lines)
-    # _ = input('')
+
 ascii_art()
