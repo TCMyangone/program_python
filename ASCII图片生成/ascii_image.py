@@ -1,5 +1,5 @@
 '''
-ASCII字符图片生成器,代码里的"path"自己替换
+ASCII字符图片生成器,代码里的"path"自己替换,颜色可更改
 '''
 from PIL import Image, ImageFont, ImageDraw
 import numpy as np
